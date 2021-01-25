@@ -14,7 +14,7 @@ Some functionality :
 .etc
 # Logo 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/43831107/105761575-9e700d80-5f53-11eb-9da2-d2d1a21971a5.png" width="200" title="Sart Screen">
+<img src="https://user-images.githubusercontent.com/43831107/105761575-9e700d80-5f53-11eb-9da2-d2d1a21971a5.png"  title="Logo">
 </p>
 # Visuals
 # Contributors
