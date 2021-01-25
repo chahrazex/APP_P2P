@@ -1,11 +1,11 @@
 # Name
- be Peer : mean be user in peer to peer network 
+be Peer : mean be user in peer to peer network
 # Description
-be peer it is an   application for chat/share ressource in P2P networt using javaFx and xampp (for the data base )
+be peer it is an application (Desktop) for chat/share resource in P2P network using javaFx and xampp (for the data base )
 
 Some functionality :
 - Create account (using email and password )
-- Share / download ressources (dirctly from users in the network )
+- Share / download resources (directly from users in the network )
 - Send message in private
 - Audio Call
 - Vedio Call
