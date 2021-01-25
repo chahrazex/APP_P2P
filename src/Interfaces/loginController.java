@@ -76,7 +76,7 @@ public class loginController
         {
             try
             {
-                connectionSocket =new Socket("192.168.43.119" ,9191) ;
+                connectionSocket =new Socket("localhost" ,9191) ;
 
 
                 OutputStream os = connectionSocket.getOutputStream() ;
