@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="rootStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="873.0" stylesheets="@../CSS/fullpackstyling.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaces.MainController">
+    <children>
+<AnchorPane fx:id="rootAnchorPane" prefHeight="651.0" prefWidth="858.0" styleClass="AnchorPane" stylesheets="@../CSS/fullpackstyling.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane fx:id="HomePane" layoutX="64.0" layoutY="48.0" prefHeight="558.0" prefWidth="772.0" style="-fx-background-radius: 20;" styleClass="PaneMain" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="48.0">
+         <children>
+                  <BarChart fx:id="barChartFile" layoutX="7.0" layoutY="215.0" legendSide="RIGHT" legendVisible="false" prefHeight="333.0" prefWidth="747.0" title="Ressources Répliquer">
+                    <xAxis>
+                      <CategoryAxis label="Ressources" onMouseEntered="#popover" side="BOTTOM" tickLabelGap="5.0" tickLength="4.0" fx:id="x" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis fx:id="y" label="Répétition" side="LEFT" upperBound="10.0" />
+                    </yAxis>
+                  </BarChart>
+                  <Pane fx:id="ProduitIndicatNbr" layoutX="67.0" layoutY="48.0" prefHeight="100.0" prefWidth="163.0" styleClass="paneHome">
+                     <children>
+                        <ImageView fitHeight="56.0" fitWidth="59.0" layoutX="54.0" layoutY="-27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Ressources/Cercle2.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="62.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Ressources/Cercle1.png" />
+                           </image>
+                        </ImageView>
+                        <FontAwesomeIcon iconName="USER" layoutX="74.0" layoutY="7.0" size="1.5em" />
+                        <Text fx:id="nombreUser" fill="WHITE" layoutX="22.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="107.90771484375">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#a19c9c" height="19.61" offsetX="5.0" offsetY="4.0" radius="8.895" width="17.97" />
+                     </effect>
+                  </Pane>
+                  <Pane fx:id="ProduitIndicatNbr1" layoutX="319.0" layoutY="48.0" prefHeight="100.0" prefWidth="163.0" styleClass="paneHome">
+                     <children>
+                        <ImageView fitHeight="56.0" fitWidth="59.0" layoutX="54.0" layoutY="-27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Ressources/Cercle2.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="62.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Ressources/Cercle1.png" />
+                           </image>
+                        </ImageView>
+                        <FontAwesomeIcon iconName="FILE" layoutX="75.0" layoutY="6.0" size="1.5em" />
+                        <Text fx:id="nombreRess" fill="WHITE" layoutX="18.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="128.90771484375">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#a19c9c" height="19.61" offsetX="5.0" offsetY="4.0" radius="8.895" width="17.97" />
+                     </effect>
+                  </Pane>
+                  <Pane fx:id="ProduitIndicatNbr11" layoutX="564.0" layoutY="48.0" prefHeight="100.0" prefWidth="163.0" styleClass="paneHome">
+                     <children>
+                        <ImageView fitHeight="56.0" fitWidth="59.0" layoutX="54.0" layoutY="-27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Ressources/Cercle2.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="62.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Ressources/Cercle1.png" />
+                           </image>
+                        </ImageView>
+                        <FontAwesomeIcon layoutX="75.0" layoutY="6.0" />
+                     </children>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" color="#a19c9c" height="19.61" offsetX="5.0" offsetY="4.0" radius="8.895" width="17.97" />
+                     </effect>
+                  </Pane>
+                  <Separator layoutX="63.0" layoutY="180.0" prefHeight="3.0" prefWidth="671.0" />
+         </children></Pane>
+      <Pane fx:id="ShearPane" layoutX="64.0" prefHeight="558.0" prefWidth="772.0" styleClass="PaneMain" visible="false" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="48.0">
+         <children>
+            <JFXTextField fx:id="SearchField" focusColor="#1d3566" layoutX="134.0" layoutY="22.0" prefHeight="42.0" prefWidth="539.0" promptText="Search File" styleClass="SearchBar" unFocusColor="WHITE">
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </JFXTextField>
+            <Text layoutX="33.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recent">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Separator layoutX="33.0" layoutY="134.0" prefHeight="0.0" prefWidth="636.0" />
+            <VBox alignment="TOP_CENTER" layoutX="687.0" layoutY="196.0" prefHeight="288.0" prefWidth="83.0" spacing="5.0">
+               <children>
+                  <JFXButton buttonType="RAISED" contentDisplay="CENTER" onAction="#UploadFile" prefHeight="41.0" prefWidth="41.0" style="-fx-background-radius: 20; -fx-background-color: #f4f4f4;" text=" ">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <FontAwesomeIcon fill="#2196f3" iconName="UPLOAD" size="1.5em" />
+                     </graphic>
+                  </JFXButton>
+                  <Label text="Upload" textFill="#37474f">
+                     <font>
+                        <Font name="Cairo-Regular" size="12.0" />
+                     </font>
+                  </Label>
+                  <JFXButton buttonType="RAISED" contentDisplay="CENTER" layoutX="31.0" layoutY="30.0" onAction="#downloadFile" prefHeight="41.0" prefWidth="41.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20;" text=" ">
+                     <graphic>
+                        <FontAwesomeIcon fill="#2196f3" iconName="DOWNLOAD" size="1.5em" />
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <Label layoutX="30.0" layoutY="62.0" text="Download" textFill="#37474f">
+                     <font>
+                        <Font name="Cairo-Regular" size="12.0" />
+                     </font>
+                  </Label>
+                  <JFXButton buttonType="RAISED" contentDisplay="CENTER" layoutX="31.0" layoutY="115.0" onAction="#DeleteFile" prefHeight="41.0" prefWidth="41.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20;" text=" ">
+                     <graphic>
+                        <FontAwesomeIcon fill="#2196f3" iconName="REMOVE" size="1.5em" />
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <Label layoutX="22.0" layoutY="161.0" text="DELET" textFill="#37474f">
+                     <font>
+                        <Font name="Cairo-Regular" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <TableView fx:id="tableF" layoutX="30.0" layoutY="151.0" prefHeight="406.0" prefWidth="647.0">
+              <columns>
+                <TableColumn fx:id="fileName" prefWidth="157.0" text="File" />
+                <TableColumn fx:id="peerName" prefWidth="133.0" text="Patager Par" />
+                  <TableColumn fx:id="ipAddress" prefWidth="90.0" text="\@IP" />
+                  <TableColumn fx:id="numPort" prefWidth="94.0" text="Num Port" />
+                  <TableColumn fx:id="statusPeer" minWidth="0.0" text="Status" />
+                  <TableColumn fx:id="pathFile" minWidth="5.0" prefWidth="92.0" text="Path" />
+              </columns>
+            </TableView>
+            <Text fill="WHITE" layoutX="667.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chahrazed" />
+            <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="612.0" layoutY="22.0" onAction="#SearchFile" prefHeight="42.0" prefWidth="60.0" text=" ">
+               <graphic>
+                  <FontAwesomeIcon iconName="SEARCH" size="1.2em" />
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutX="91.0" layoutY="99.0" onAction="#Refresh" prefHeight="33.0" prefWidth="66.0" text=" ">
+               <graphic>
+                  <FontAwesomeIcon iconName="REFRESH" size="1.5em" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Pane fx:id="ChatsPane" layoutX="64.0" layoutY="42.0" prefHeight="558.0" prefWidth="772.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20;" visible="false" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="48.0">
+         <children>
+                  <Pane layoutX="270.0" layoutY="49.0" prefHeight="523.0" prefWidth="502.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 0 0 20 0;" />
+            <ScrollPane layoutX="270.0" layoutY="90.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="412.0" prefWidth="493.0" style="-fx-border-color: #f4f4f4;">
+                     <content>
+                        <VBox fx:id="espaceMsg" alignment="BOTTOM_CENTER" prefHeight="404.0" prefWidth="469.0" spacing="15.0">
+                           <padding>
+                              <Insets bottom="5.0" left="10.0" />
+                           </padding></VBox>
+                     </content>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+            </ScrollPane>
+            <HBox layoutX="281.0" layoutY="502.0" prefHeight="49.0" prefWidth="484.0">
+               <children>
+                  <TextField fx:id="textFielMessage" editable="false" prefHeight="41.0" prefWidth="433.0" />
+                  <JFXButton fx:id="sendButton" alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="58.0" text=" ">
+                     <graphic>
+                        <FontAwesomeIcon fill="#2196f3" iconName="SEND" size="2em" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+            </HBox>
+                  <Pane prefHeight="572.0" prefWidth="268.0" style="-fx-background-color: #ffffff; -fx-background-radius: 20 0 0 20;">
+                     <children>
+                        <Separator layoutX="265.0" orientation="VERTICAL" prefHeight="572.0" prefWidth="3.0" />
+                     </children>
+                  </Pane>
+            <Text layoutX="87.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chats">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Separator layoutX="20.0" layoutY="76.0" prefHeight="3.0" prefWidth="219.0" />
+                  <Label fx:id="message" alignment="CENTER" contentDisplay="CENTER" layoutX="272.0" layoutY="55.0" prefHeight="33.0" prefWidth="475.0" text=" " textAlignment="CENTER" />
+                  <ImageView fx:id="vectorImage" fitHeight="406.0" fitWidth="493.0" layoutX="275.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Ressources/5351.png" />
+                     </image>
+                  </ImageView>
+            <Pane layoutX="268.0" prefHeight="49.0" prefWidth="504.0" style="-fx-background-color: #fff; -fx-background-radius: 0 15 0 0;">
+               <children>
+                  <JFXButton fx:id="vedioCallBtn" contentDisplay="CENTER" layoutX="452.0" layoutY="12.0" onAction="#VedioCall" text=" ">
+                     <graphic>
+                        <FontAwesomeIcon fill="#2196f3" iconName="VIDEO_CAMERA" size="1.2em" />
+                     </graphic>
+                  </JFXButton>
+                  <Separator layoutX="443.0" layoutY="3.0" orientation="VERTICAL" prefHeight="41.0" prefWidth="3.0" />
+                  <JFXButton fx:id="AudioCallBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="402.0" layoutY="10.0" onAction="#AudioCall" prefHeight="28.0" prefWidth="38.0" text=" ">
+                     <graphic>
+                        <FontAwesomeIcon fill="#2196f3" iconName="PHONE" size="1.2em" />
+                     </graphic>
+                  </JFXButton>
+                  <Separator layoutX="393.0" layoutY="4.0" orientation="VERTICAL" prefHeight="41.0" prefWidth="3.0" />
+                        <Label fx:id="usernameLabel" layoutX="69.0" layoutY="17.0" prefHeight="16.0" prefWidth="260.0">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font></Label>
+                        <JFXButton fx:id="quitChat" layoutX="7.0" layoutY="14.0" onAction="#quitChat" text=" ">
+                           <graphic>
+                              <FontAwesomeIcon fill="#2196f3" iconName="ARROW_LEFT" size="1.5em" />
+                           </graphic>
+                        </JFXButton>
+               </children>
+                     <effect>
+                        <DropShadow blurType="TWO_PASS_BOX" offsetX="5.0" />
+                     </effect>
+            </Pane>
+            <ScrollPane layoutX="4.0" layoutY="116.0" prefHeight="431.0" prefWidth="260.0" style="-fx-border-color: #ffffff; -fx-background-color: #ffffff;">
+                     <content>
+                        <JFXListView fx:id="list" prefHeight="427.0" prefWidth="255.0" style="-fx-background-color: #ffffff; -fx-border-color: #ffffff;" />
+                     </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+      <VBox alignment="TOP_CENTER" layoutY="144.0" prefHeight="463.0" prefWidth="89.0" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="784.0" AnchorPane.topAnchor="144.0">
+         <children>
+            <JFXButton fx:id="homeBtn" alignment="CENTER" onAction="#ShowHomePane" prefHeight="50.0" prefWidth="76.0" styleClass="shearBrn" text=" ">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIcon fx:id="homeIcon" fill="WHITE" iconName="HOME" selectionFill="#77e1da" size="2.2em" styleClass="icon" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="shearBtn" alignment="CENTER" onAction="#ShowShearPane" prefHeight="50.0" prefWidth="76.0" styleClass="shearBrn" text=" ">
+               <graphic>
+                  <FontAwesomeIcon fx:id="shearicon" fill="WHITE" iconName="SHARE" selectionFill="#77e1da" size="2em" styleClass="icon" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="mssengerBtn" alignment="CENTER" onAction="#ShowChatsPane" prefHeight="50.0" prefWidth="76.0" styleClass="menuBtn" text=" ">
+               <graphic>
+                  <ImageView fx:id="imageMessanger" fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
+                     <image>
+                        <Image url="@../Ressources/messenger.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+                  <JFXButton onAction="#About" prefHeight="50.0" prefWidth="76.0" text=" ">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" iconName="QUESTION" size="2em" />
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="120.0" />
+                     </VBox.margin>
+                  </JFXButton>
+            <JFXButton alignment="CENTER" onAction="#LogOut" prefHeight="50.0" prefWidth="76.0" text=" ">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" iconName="SIGN_OUT" rotate="180.0" size="2em" />
+               </graphic>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+      </VBox>
+            <ImageView fitHeight="33.0" fitWidth="38.0" layoutX="435.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Ressources/manager.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="userFentre" layoutX="483.0" layoutY="4.0" prefHeight="41.0" prefWidth="228.0" textFill="WHITE" />
+            <ImageView fitHeight="50.0" fitWidth="52.0" layoutX="19.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Ressources/Logo.png" />
+               </image>
+            </ImageView>
+   </children>
+</AnchorPane>
+    </children>
+</StackPane>

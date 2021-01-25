@@ -1,0 +1,216 @@
+
+.AnchorPane
+{
+    -fx-background-color:  #151928;
+}
+.pane{
+    -fx-background-color: #2196f3;
+}
+.AnchorPane2
+{
+    -fx-background-color:  #ffffff;
+}
+.PaneAppName
+{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 5;
+}
+.Pane
+{
+    -fx-background-color:  #F4F4F4;
+    -fx-background-radius: 0 0 5 5 ;
+}
+.TitlePane
+{
+    -fx-background-color: #ffffff;
+}
+.ElementPane
+{
+    -fx-background-color: #ffffff;
+    -fx-background-radius:  5 ;
+}
+.AnnouncePane
+{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 6;
+}
+.JFXTextFiled
+{
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #ffffff;
+}
+.JFXButton
+{
+    -fx-background-color: #2196f3;
+    -fx-border-radius: 5;
+    -fx-border-color: #ffffff;
+}
+.JFXButton2
+{
+    -fx-background-color: #2196f3;
+}
+.white-pane{
+    -fx-background-color: #ffffff;
+}
+.parent{
+    -fx-background-color: transparent;
+}
+.tf_box{
+    -fx-background-color: transparent;
+    -fx-border-color: #DEDEE4;
+    -fx-border-width: 0px 0px 1px 0px;
+}
+.tf{
+    -fx-background-color: transparent;
+}
+.blue-btn{
+    -fx-background-color: #2196f3;
+    -fx-background-radius: 5px;
+    -fx-text-fill:#ffffff;
+}
+.blue-panel{
+    -fx-background-color: #151928;
+}
+.PaneMain
+{
+    -fx-background-color:  #ffffff;
+}
+.SearchBar
+{
+    -fx-background-color: #F4F4F4;
+}
+.jfx-snackbar-content
+{
+    -fx-background-color: GREEN;
+    -fx-prompt-text-fill: white;
+    -fx-padding: 9;
+    -fx-background-radius: 19;
+}
+.right
+{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-background-radius: 7 0 7 7px;
+    -fx-background-color: #2196f3;
+    -fx-font-size: 12;
+    -fx-end-margin: 10px;
+    -fx-start-margin: 10px;
+}
+.imageright
+{
+    -fx-end-margin: 10px;
+    -fx-start-margin: 10px;
+}
+.left
+{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-background-radius:  0 7 7 7px;
+    -fx-background-color: #151928;
+    -fx-font-size: 12;
+    -fx-end-margin: 10px;
+    -fx-start-margin: 10px;
+}
+.nameLabel
+{
+    -fx-end-margin: 10px;
+    -fx-start-margin: 10px;
+    -fx-font-size: 14;
+    -fx-padding: 10px;
+
+}
+/*Dialog Styling*/
+.dialogButtonNo
+{
+    -fx-background-color:#ffffff ;
+    -fx-border-color :#00a0ff ;
+    -fx-background-radius: 20 ;
+    -fx-border-radius: 20 ;
+    -fx-text-fill:#1b262c ;
+}
+.dialogButtonNo:hover
+{
+    -fx-background-color:#1b262c ;
+    -fx-background-radius: 20 ;
+    -fx-text-fill:#ffffff
+}
+.dialogButtonYes
+{
+    -fx-background-color:#00a0ff ;
+    -fx-background-radius: 20 ;
+    -fx-text-fill:#ffffff
+}
+.dialogButtonYes:hover
+{
+    -fx-background-color:#1b262c ;
+    -fx-background-radius: 20 ;
+    -fx-text-fill:#ffffff
+}
+
+.btn
+{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20 0 0 20;
+}
+.btn-not
+{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20 0 0 20;
+}
+.icon:hover
+{
+    -fx-background-color: #151928;
+    -fx-fill: #151928;
+}
+    /*-------------------------------Table VIew -------------------------------------*/
+
+.table-view{
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+}
+/* Spaltenköpfe
+    Struktur column-header-background -> column-header */
+
+.table-view .column-header-background{
+    -fx-background-color: #F4F4F4;
+    -fx-border-color: white;
+}
+
+.table-view .column-header-background .label{
+    -fx-text-fill: black;
+    -fx-border-color: white;
+}
+.data0.chart-bar {
+    -fx-background-color: linear-gradient(to top left, #2196f3, #151928);
+}
+.data1.chart-bar {
+    -fx-background-color: linear-gradient(to top left, #151928, #2196f3);
+}
+.data2.chart-bar {
+    -fx-background-color: linear-gradient(to top left, #2196f3, #151928);
+}
+.data3.chart-bar {
+    -fx-background-color: linear-gradient(to top left, #151928, #2196f3);
+}
+.data4.chart-bar {
+    -fx-background-color: linear-gradient(to top left, #2196f3, #151928);;
+}
+.data5.chart-bar {
+    -fx-background-color: linear-gradient(to top left, #151928, #2196f3);
+}
+.data6.chart-bar {
+    -fx-background-color: linear-gradient(to top left, #2196f3, #151928);
+}
+
+.paneHome
+{
+    -fx-background-color: linear-gradient(to top left, #151928, #2196f3);
+    -fx-background-radius: 5px;
+}
+.paneHome:hover
+{
+    -fx-translate-y: 10;
+}
+
