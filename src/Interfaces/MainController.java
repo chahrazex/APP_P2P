@@ -226,7 +226,6 @@ public class MainController  implements Initializable
                 ObjectInputStream ois = new ObjectInputStream(chat.getInputStream()) ;
 
 
-
                 //int request = Integer.parseInt(bf.readLine()); //read request of usr
                 int request = (int) ois.readObject();
                 System.out.println(request);
@@ -1075,8 +1074,9 @@ public class MainController  implements Initializable
         Socket socket = new Socket(ip,port);
 
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
-        //ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+
         oos.writeObject(3);
+        ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
 
         VedioCalling =true ;
         Stage primaryStage = new Stage() ;
@@ -1184,7 +1184,10 @@ public class MainController  implements Initializable
             try
             {
                 socket.close();
-                Platform.runLater(primaryStage::close);
+                 Platform.runLater(()->{
+                    webcam.close() ;
+                    primaryStage.close();
+                });
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -1199,15 +1202,20 @@ public class MainController  implements Initializable
     {
         Socket s;
         ObjectInputStream ois ;
+        ObjectOutputStream objectOutputStream ;
         ImageView myimage ;
         ImageView user2 ;
         Stage primaryStage ;
+        final Dimension size  = WebcamResolution.QVGA.getSize();
+        Webcam webcam = Webcam.getDefault();
+
 
         public VedioCall(Socket s,ObjectInputStream ois ) throws IOException
         {
             System.out.println("from constactor ");
             this.s = s;
             this.ois = ois ;
+            objectOutputStream = new ObjectOutputStream(s.getOutputStream()) ;
 
         }
 
@@ -1223,12 +1231,12 @@ public class MainController  implements Initializable
         public void VedoInterface()
         {
 
-            /*final Dimension size = WebcamResolution.QVGA.getSize();
-            Webcam webcam = Webcam.getDefault();
-            webcam.setViewSize(size);
-            webcam.open();*/
+
             Platform.runLater(()->
             {
+                //webcam.setViewSize(size);
+                //webcam.open();
+
                 primaryStage = new Stage() ;
                 Pane pane =  new Pane() ;
                 ImageView imageView = new ImageView(new Image("Ressources/tabletmocup.png")) ;
@@ -1277,8 +1285,12 @@ public class MainController  implements Initializable
 
             });
 
-            /*Thread sendVideo = new Thread(()->
+           /* Thread sendVideo = new Thread(()->
             {
+                final Dimension size = WebcamResolution.QVGA.getSize();
+                Webcam webcam = Webcam.getDefault();
+                webcam.setViewSize(size);
+                webcam.open();
                 BufferedImage bufferedImage;
                 while (VedioCalling)
                 {
@@ -1289,7 +1301,7 @@ public class MainController  implements Initializable
                     ic = new ImageIcon(bufferedImage);
                     try
                     {
-                        oos.writeObject(ic);
+                        objectOutputStream.writeObject(ic);
                     }
                     catch (IOException e)
                     {
@@ -1298,7 +1310,10 @@ public class MainController  implements Initializable
                 }
                 try {
                     s.close();
-                    Platform.runLater(primaryStage::close);
+                     Platform.runLater(()->{
+                        primaryStage.close();
+                        webcam.close() ;
+                    });
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
