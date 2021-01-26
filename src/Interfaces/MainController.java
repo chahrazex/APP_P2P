@@ -70,6 +70,7 @@ public class MainController  implements Initializable
     public static String username;
     public static int MyPort ;
     public static int portUser2 ;
+    public static String ipUser2 ;
     URL src = getClass().getResource("messageNotif.mp3") ;
     AudioClip clipMessageNotif = new AudioClip(src.toString()) ;
     URL src2 =getClass().getResource("request.mp3") ;
@@ -826,7 +827,8 @@ public class MainController  implements Initializable
             if (u.getStatus().equals("En Ligne"))
             {
                 portUser2 = u.getPort() ;
-                chatSocket = new Socket(u.getIp(),portUser2);
+                ipUser2 = u.getIp() ;
+                chatSocket = new Socket(ipUser2,portUser2);
                 InputStream inputStream = chatSocket.getInputStream();
                 OutputStream outputStream = chatSocket.getOutputStream() ;
                 ObjectOutputStream oos = new ObjectOutputStream(outputStream) ;
@@ -1429,7 +1431,15 @@ public class MainController  implements Initializable
         primaryStage.setY(100);
 
         primaryStage.show();
-        iniAudioClient(ip,port);
+        /*Thread sendVoice = new Thread(() -> {
+            iniAudioClient(ip,port);
+        }) ;
+        sendVoice.start();*/
+        Thread reciveVoice = new Thread(() -> {
+            iniAudioServer(MyPort);
+        }) ;
+        reciveVoice.start();
+
         /*--------------------------------*/
 
     }
@@ -1459,6 +1469,32 @@ public class MainController  implements Initializable
             e.printStackTrace();
         }
     }
+    public void iniAudioServer(int port)
+    {
+        SourceDataLine audio_in ;
+        AudioFormat format = getaudioFormat() ;
+        DataLine.Info info_out = new DataLine.Info(SourceDataLine.class,format) ;
+        if (!AudioSystem.isLineSupported(info_out))
+        {
+            System.out.println("not supported");
+            System.exit(0);
+        }
+        try
+        {
+            audio_in = (SourceDataLine) AudioSystem.getLine(info_out) ;
+            audio_in.open(format);
+            audio_in.start();
+            player_thread p = new player_thread() ;
+            p.din = new DatagramSocket(port) ;
+            p.audio_out = audio_in ;
+            Calling = true ;
+            p.start();
+        }
+        catch (LineUnavailableException | SocketException e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     public  class AudioCall  implements Runnable
     {
@@ -1474,32 +1510,6 @@ public class MainController  implements Initializable
         public void run()
         {
             createFrame() ;
-        }
-        public void iniAudioServer(int port)
-        {
-            SourceDataLine audio_in ;
-            AudioFormat format = getaudioFormat() ;
-            DataLine.Info info_out = new DataLine.Info(SourceDataLine.class,format) ;
-            if (!AudioSystem.isLineSupported(info_out))
-            {
-                System.out.println("not supported");
-                System.exit(0);
-            }
-            try
-            {
-                audio_in = (SourceDataLine) AudioSystem.getLine(info_out) ;
-                audio_in.open(format);
-                audio_in.start();
-                player_thread p = new player_thread() ;
-                p.din = new DatagramSocket(port) ;
-                p.audio_out = audio_in ;
-                Calling = true ;
-                p.start();
-            }
-            catch (LineUnavailableException | SocketException e)
-            {
-                e.printStackTrace();
-            }
         }
         public void createFrame()
         {
@@ -1548,7 +1558,14 @@ public class MainController  implements Initializable
                 primaryStage.setX(80);
                 primaryStage.setY(100);
                 primaryStage.show();
-                iniAudioServer(MyPort);
+                 /*Thread reciveVoice = new Thread(() -> {
+                    iniAudioServer(MyPort);
+                });
+                reciveVoice.start();*/
+                Thread sendVoice = new Thread(() -> {
+                    iniAudioClient(ipUser2,portUser2);
+                });
+                sendVoice.start();
             });
         }
     }
