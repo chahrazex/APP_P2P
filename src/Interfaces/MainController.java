@@ -1084,16 +1084,12 @@ public class MainController  implements Initializable
         Stage primaryStage = new Stage() ;
         Pane pane =  new Pane() ;
         ImageView imageView = new ImageView(new Image("Ressources/tabletmocup.png")) ;
-        imageView.setFitWidth(570);
-        imageView.setFitHeight(518);
+        imageView.setFitWidth(550);
+        imageView.setFitHeight(300);
 
         ImageView myimage = new ImageView() ;
         myimage.setX(115);
         myimage.setY(30);
-        ImageView user2 = new ImageView() ;
-        user2.setX(115);
-        user2.setY(250);
-
 
         Text endCall = GlyphsDude.createIcon(FontAwesomeIconName.PHONE,"2em") ;
         endCall.setFill(Color.WHITE);
@@ -1106,9 +1102,9 @@ public class MainController  implements Initializable
 
         button.setGraphic(endCall);
         button.setLayoutX(250);
-        button.setLayoutY(230);
+        button.setLayoutY(235);
+        //pane.getChildren().addAll(imageView,myimage,button) ;
         pane.getChildren().addAll(imageView,myimage,button) ;
-        //pane.getChildren().addAll(imageView,myimage,user2,button) ;
 
 
         final Dimension size = WebcamResolution.QVGA.getSize();
@@ -1159,7 +1155,7 @@ public class MainController  implements Initializable
                 e.printStackTrace();
             }
         });
-        sendVideo.start();
+
         /*---------------------------------------Recive THread------------------------------*/
         /*Thread reciveThread = new Thread(()->
         {
@@ -1195,6 +1191,7 @@ public class MainController  implements Initializable
             }
         });
         reciveThread.start();*/
+        sendVideo.start();
         /*----------------------------------------------------------------------------*/
     }
 
@@ -1236,22 +1233,20 @@ public class MainController  implements Initializable
 
             Platform.runLater(()->
             {
-                //webcam.setViewSize(size);
+                webcam.setViewSize(size);
+
                 //webcam.open();
 
                 primaryStage = new Stage() ;
                 Pane pane =  new Pane() ;
                 ImageView imageView = new ImageView(new Image("Ressources/tabletmocup.png")) ;
-                imageView.setFitWidth(570);
-                imageView.setFitHeight(518);
+                imageView.setFitWidth(550);
+                imageView.setFitHeight(300);
 
-                myimage = new ImageView() ;
-                myimage.setX(115);
-                myimage.setY(30);
 
                 user2 = new ImageView() ;
                 user2.setX(115);
-                user2.setY(250);
+                user2.setY(30);
 
 
                 Text endCall = GlyphsDude.createIcon(FontAwesomeIconName.PHONE,"2em") ;
@@ -1265,9 +1260,9 @@ public class MainController  implements Initializable
 
                 button.setGraphic(endCall);
                 button.setLayoutX(250);
-                button.setLayoutY(230);
+                button.setLayoutY(235   );
+                //pane.getChildren().addAll(imageView,user2,button) ;
                 pane.getChildren().addAll(imageView,user2,button) ;
-                //pane.getChildren().addAll(imageView,myimage,user2,button) ;
 
 
                 button.setOnMouseClicked(e ->
@@ -1287,7 +1282,7 @@ public class MainController  implements Initializable
 
             });
 
-           /* Thread sendVideo = new Thread(()->
+            /*Thread sendVideo = new Thread(()->
             {
                 final Dimension size = WebcamResolution.QVGA.getSize();
                 Webcam webcam = Webcam.getDefault();
@@ -1298,8 +1293,8 @@ public class MainController  implements Initializable
                 {
                     ImageIcon ic;
                     bufferedImage = webcam.getImage();
-                    Image picture = SwingFXUtils.toFXImage(bufferedImage,null);
-                    myimage.setImage(picture);
+                    //Image picture = SwingFXUtils.toFXImage(bufferedImage,null);
+                    //myimage.setImage(picture);
                     ic = new ImageIcon(bufferedImage);
                     try
                     {
@@ -1319,8 +1314,7 @@ public class MainController  implements Initializable
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            });
-            sendVideo.start();*/
+            });*/
             Thread reciveVideo = new Thread(()->
             {
                 BufferedImage bufferedImage;
@@ -1348,12 +1342,13 @@ public class MainController  implements Initializable
                     s.close();
                     Platform.runLater(()->{
                         primaryStage.close(); ;
-                        //webcam.close() ;
+                        webcam.close() ;
                     });
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
+            //sendVideo.start();
             reciveVideo.start();
         }
     }
@@ -1431,10 +1426,10 @@ public class MainController  implements Initializable
         primaryStage.setY(100);
 
         primaryStage.show();
-        /*Thread sendVoice = new Thread(() -> {
+        Thread sendVoice = new Thread(() -> {
             iniAudioClient(ip,port);
         }) ;
-        sendVoice.start();*/
+        sendVoice.start();
         Thread reciveVoice = new Thread(() -> {
             iniAudioServer(MyPort);
         }) ;
@@ -1515,6 +1510,8 @@ public class MainController  implements Initializable
         {
             Platform.runLater(()->
             {
+                String ip = chatSocket.getInetAddress().getHostAddress() ;
+                int port = portUser2 ;
                 Stage primaryStage = new Stage() ;
                 Pane pane =  new Pane() ;
                 ImageView imageView = new ImageView(new Image("Ressources/phonemocup.png")) ;
@@ -1529,6 +1526,7 @@ public class MainController  implements Initializable
 
                 ImageView micro = new ImageView(new Image("Ressources/microphone.png")) ;
                 micro.setX(70);
+
                 micro.setY(70);
 
 
@@ -1558,12 +1556,12 @@ public class MainController  implements Initializable
                 primaryStage.setX(80);
                 primaryStage.setY(100);
                 primaryStage.show();
-                 /*Thread reciveVoice = new Thread(() -> {
+                 Thread reciveVoice = new Thread(() -> {
                     iniAudioServer(MyPort);
                 });
-                reciveVoice.start();*/
+                reciveVoice.start();
                 Thread sendVoice = new Thread(() -> {
-                    iniAudioClient(ipUser2,portUser2);
+                    iniAudioClient(ip,port);
                 });
                 sendVoice.start();
             });

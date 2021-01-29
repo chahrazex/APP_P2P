@@ -7,7 +7,6 @@ import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconName;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -23,7 +22,6 @@ import javax.swing.*;
 import java.io.*;
 import java.net.*;
 import java.util.Enumeration;
-import java.util.Scanner;
 
 public class signUpController
 {
@@ -84,7 +82,7 @@ public class signUpController
             try
             {
 
-                Socket s =new Socket("localhost" ,9191) ;
+                Socket s =new Socket("10.42.0.1" ,9191) ;
 
                 InputStream is =s.getInputStream();
                 InputStreamReader isr =new InputStreamReader(is) ;

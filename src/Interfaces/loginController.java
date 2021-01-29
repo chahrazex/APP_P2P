@@ -4,38 +4,23 @@ package Interfaces;
 import Model.User;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
-import com.jfoenix.controls.JFXSnackbar;
 import com.jfoenix.controls.JFXTextField;
 
-import de.jensd.fx.glyphs.GlyphsDude;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconName;
-import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import org.controlsfx.validation.ValidationSupport;
 import org.controlsfx.validation.Validator;
 
 import javax.swing.*;
 import java.io.*;
 import java.net.*;
-import java.util.Enumeration;
-import java.util.ResourceBundle;
-import java.util.Scanner;
-
 
 public class loginController
 {
@@ -76,7 +61,7 @@ public class loginController
         {
             try
             {
-                connectionSocket =new Socket("localhost" ,9191) ;
+                connectionSocket =new Socket("10.42.0.1" ,9191) ;
 
 
                 OutputStream os = connectionSocket.getOutputStream() ;
