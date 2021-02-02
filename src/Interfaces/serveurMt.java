@@ -100,7 +100,7 @@ public class serveurMt extends Thread
                             oos.writeObject(SearchFile(nameFile));
                             break;
                         case 4 :
-                            File f = new File(bis.readLine());
+                            File f = (File) ois.readObject();
                             System.out.println("User "+num+ "share file : "+f.getName());
                             String username = bis.readLine() ;
                             Enregistre(f,username);
@@ -199,6 +199,7 @@ public class serveurMt extends Thread
         /*-------------------------------------------------------------------------*/
         public void  Enregistre(File f ,String name)
         {
+            System.out.println(f.getPath());
             CennectionClass cennectionClass=new CennectionClass() ;
             System.out.println(name);
             User user = cennectionClass.SearchUserInfo(name);

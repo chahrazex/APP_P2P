@@ -107,7 +107,7 @@ public class CennectionClass {
             Connection connection = getConnection();
             Statement statement = connection.createStatement();
             return statement.execute("INSERT INTO " + table + "(username,filename,ip,port,status,pathFile) VALUES ('"
-                    + user + "','" + file.getName() + "','" + ip + "','" + port + "','" + status + "','" + file.getAbsolutePath() + "')");
+                    + user + "','" + file.getName() + "','" + ip + "','" + port + "','" + status + "','" + file.getPath() + "')");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Number or Name of Client exist");
             return true;

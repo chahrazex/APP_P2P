@@ -82,7 +82,7 @@ public class signUpController
             try
             {
 
-                Socket s =new Socket("10.42.0.1" ,9191) ;
+                Socket s =new Socket("192.168.43.119" ,9191) ;
 
                 InputStream is =s.getInputStream();
                 InputStreamReader isr =new InputStreamReader(is) ;

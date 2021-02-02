@@ -71,6 +71,7 @@ public class MainController  implements Initializable
     public static int MyPort ;
     public static int portUser2 ;
     public static String ipUser2 ;
+    public  static String NameFile ;
     URL src = getClass().getResource("messageNotif.mp3") ;
     AudioClip clipMessageNotif = new AudioClip(src.toString()) ;
     URL src2 =getClass().getResource("request.mp3") ;
@@ -235,8 +236,7 @@ public class MainController  implements Initializable
                 {
                     // 1=> means they want to download the file
                     case 1:
-                        BufferedReader bf = new BufferedReader(new InputStreamReader(chat.getInputStream()));
-                        File f = new File(bf.readLine());
+                        File f = (File) ois.readObject();
                         System.out.println(f.getAbsolutePath());
                         InputStream in = new FileInputStream(f);
                         int count;
@@ -421,7 +421,7 @@ public class MainController  implements Initializable
     private int indexF = -1;
     private TextInputDialog textInputDialog;
     private TextField filePath;
-    private File file;
+    public static File  file;
     private JFXSnackbar snackbar ;
 
     /*-------------------------------List Of Function -----------------------------------------------*/
@@ -475,15 +475,14 @@ public class MainController  implements Initializable
     }
     /*----------------------------Share a resource------------------------------------*/
     @FXML
-    void UploadFile()
-    {
+    void UploadFile() throws IOException {
         showDialog();
         Optional<String> result = textInputDialog.showAndWait();
 
         if (result.isPresent())
         {
             pw.println(4);
-            pw.println(file);//send file
+            oos.writeObject(file);//send file path
             pw.println(username);
 
             System.out.println(file);
@@ -558,6 +557,7 @@ public class MainController  implements Initializable
             String ip = ipAddress.getCellData(indexF);
             int port = numPort.getCellData(indexF);
             String file = pathFile.getCellData(indexF);
+            System.out.println(file);
             String status = statusPeer.getCellData(indexF);
 
             if (peerName.getCellData(indexF).equals(username))
@@ -578,6 +578,7 @@ public class MainController  implements Initializable
                             String path = String.valueOf(fileChooser.getSelectedFile());
                             File f = new File(path + "/" + name);//Recive file path
                             System.out.println("Path where i save" + f.getAbsolutePath());
+                            File filedownload = new File(file) ;
 
 
                             chatSocket = new Socket(ip,port);
@@ -593,9 +594,10 @@ public class MainController  implements Initializable
 
 
                             objectOutputStream.writeObject(1); //send request code 1==> mean download file
-                            printWriter.println(file);//Send Path file to Peer server to download
+                            //printWriter.println(file);//Send Path file to Peer server to download
+                            objectOutputStream.writeObject(filedownload);
 
-                            System.out.println("file to downnload" + file);
+                            System.out.println("file to downnload" + filedownload.getAbsolutePath());
                             int count;
                             InputStream inputStream = chatSocket.getInputStream();
                             while ((count = inputStream.read(bytes)) > 0)
@@ -608,7 +610,7 @@ public class MainController  implements Initializable
 
                             //Add the resource to the "annuair"
                             pw.println(4);
-                            pw.println(f);//send file
+                            oos.writeObject(f);
                             pw.println(username);
 
                         }
@@ -667,16 +669,12 @@ public class MainController  implements Initializable
         pane.getChildren().addAll(filePath, Browse);
         textInputDialog.setHeaderText(null);
         textInputDialog.getDialogPane().setContent(pane);
-
-
         Browse.setOnMouseClicked(event ->
         {
             FileChooser fileChooser = new FileChooser();
             file = fileChooser.showOpenDialog(rootAnchorPane.getScene().getWindow());
             filePath.setText(file.getAbsolutePath());
-
         });
-
     }
     public void showToast()
     {
